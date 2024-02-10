@@ -166,7 +166,7 @@ echo -e "$green      Install Auto Backup        $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/ontent.com/fisabiliyusri/Mantap/Backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
