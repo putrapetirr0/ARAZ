@@ -39,8 +39,4 @@ cp -r /home/vps/public_html backup/public_html
 cd /root
 zip -r $IP.zip backup > /dev/null 2>&1
 bash backup.sh $IP.zip
-Detail Backup 
-==================================
-IP VPS        : $IP
-Tanggal       : $date
-==================================
+cek file di telegram grup....
