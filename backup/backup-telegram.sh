@@ -42,6 +42,6 @@ wget send.sh "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/se
 chmod +x send.sh
 bash send.sh $IP.zip
 rm -rf /root/backup
-rm -r /root/$IP-$date.zip
+rm -r /root/$IP.zip
 rm -r /root/send.sh
 echo "Done"
