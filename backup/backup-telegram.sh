@@ -38,7 +38,9 @@ cp -r /etc/trojan-go backup/trojan-go
 cp -r /home/vps/public_html backup/public_html
 cd /root
 zip -r $IP.zip backup > /dev/null 2>&1
-bash backup.sh $IP.zip
+wget send.sh "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/send.sh"
+chmod +x send.sh
+bash send.sh $IP.zip
 rm -rf /root/backup
 rm -r /root/$IP-$date.zip
-clear
+rm -r /root/send.sh
