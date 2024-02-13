@@ -121,8 +121,8 @@ echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
 sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 
-mkdir -p /var/lib/SIJA >/dev/null 2>&1
-echo "IP=" >> /var/lib/SIJA/ipvps.conf
+mkdir -p /var/lib/ARAZ >/dev/null 2>&1
+echo "IP=" >> /var/lib/ARAZ/ipvps.conf
 
 echo ""
 wget -q https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/tools.sh;chmod +x tools.sh;./tools.sh
@@ -141,7 +141,7 @@ read -rp "Input ur domain : " -e pp
 	echo "$pp" > /etc/xray/domain
 	echo "$pp" > /etc/v2ray/domain
 	echo $pp > /root/domain
-        echo "IP=$pp" > /var/lib/SIJA/ipvps.conf
+        echo "IP=$pp" > /var/lib/ARAZ/ipvps.conf
     fi
     
 #install ssh ovpn
