@@ -44,4 +44,4 @@ bash send.sh $IP.zip
 rm -rf /root/backup
 rm -r /root/$IP.zip
 rm -r /root/send.sh
-echo "Done"
+echo "Jangan lupa sedekah"
