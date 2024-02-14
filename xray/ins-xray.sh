@@ -1,8 +1,6 @@
 #!/bin/bash
-echo -e "
-"
-date
-echo ""
+MYIP=$(wget -qO- ipinfo.io/ip);
+clear
 domain=$(cat /etc/xray/domain)
 sleep 1
 mkdir -p /etc/xray 
