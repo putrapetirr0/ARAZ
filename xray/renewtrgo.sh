@@ -1,5 +1,5 @@
 #!/bin/bash
-# SL
+# ARAZ1308
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -53,4 +53,4 @@ echo "============================"
 echo "Username : $user"
 echo "Expired  : $exp4"
 echo "=========================="
-echo "Script Mod By ADAM SIJA"
+echo "Script Mod By ARAZ1308"
