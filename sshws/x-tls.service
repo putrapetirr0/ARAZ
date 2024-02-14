@@ -1,6 +1,6 @@
 [Unit]
-Description=Python Proxy by SL
-Documentation=https://nekopoi.care
+Description=Python Proxy by araz1308
+Documentation=@araz1308
 After=network.target nss-lookup.target
 
 [Service]
