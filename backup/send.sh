@@ -4,6 +4,7 @@
 
 IP=$(wget -qO- ipinfo.io/ip);
 DATE=$(date +"%m-%d-%y")
+domain=$(cat /etc/xray/domain)
 ######################### Colours ############################
 ON_BLUE=$(echo -e "\033[44m")
 RED=$(echo -e "\033[1;31m")
@@ -42,6 +43,7 @@ send_file "$1" "Assalamualaikum kawanku
 Saya kirimkan file backup
 Tanggal Backup : $DATE
 Your IP VPS    : $IP
+Your Domain    : $domain
 Terima kasih
 Ingat harus sedekah!!!!
 waalaikumsalam wr wb " > /dev/null
