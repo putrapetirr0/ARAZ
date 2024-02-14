@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 
 clear
 uuid=$(cat /etc/trojan-go/uuid.txt)
-source /var/lib/SIJA/ipvps.conf
+source /var/lib/ARAZ/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
