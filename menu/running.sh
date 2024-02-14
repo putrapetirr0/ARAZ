@@ -213,6 +213,13 @@ else
    swsdrop="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 
+# // NGINX
+nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $nginx == "running" ]]; then
+    status_nginx="${GREEN}Running${NC} ( No Eror )"
+else
+    status_nginx="${RED}No Running${NC} ( Eror )"
+fi
 
 
 # TOTAL RAM
@@ -274,6 +281,7 @@ echo -e "❇️ Squid                   :$status_squid"
 echo -e "❇️ Fail2Ban                :$status_fail2ban"
 echo -e "❇️ Crons                   :$status_cron"
 echo -e "❇️ Vnstat                  :$status_vnstat"
+echo -e "❇️ Nginx                   :$status_nginx"
 echo -e "❇️ XRAYS Vmess TLS         :$status_tls_v2ray"
 echo -e "❇️ XRAYS Vmess None TLS    :$status_nontls_v2ray"
 echo -e "❇️ XRAYS Vless TLS         :$status_tls_vless"
