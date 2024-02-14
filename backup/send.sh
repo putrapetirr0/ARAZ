@@ -38,7 +38,11 @@ send_file() {
  -F "document=@$file_path" \
  -F "caption=$caption"
 }
-send_file "$1" "Thank You For Using Our Service
+send_file "$1" "Assalamualaikum kawanku
+Saya kirimkan file backup
 Tanggal Backup : $DATE
-Your IP VPS    : $IP" > /dev/null
+Your IP VPS    : $IP
+Terima kasih
+Ingat harus sedekah!!!!
+waalaikumsalam wr wb " > /dev/null
 echo " ${ON_BLUE} cek file di telegram grup.... ${STD}"
