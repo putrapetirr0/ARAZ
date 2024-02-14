@@ -73,6 +73,16 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 /root/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
 
+## crt nginx
+cd
+mkdir /etc/nginx/key.pem
+mkdir /etc/nginx/cert.pem
+cd
+acme.sh --install-cert -d $domain 
+--key-file       /etc/nginx/key.pem  
+--fullchain-file /etc/nginx/cert.pem 
+--reloadcmd     "service nginx force-reload"
+
 # nginx renew ssl
 echo -n '#!/bin/bash
 /etc/init.d/nginx stop
