@@ -1,4 +1,5 @@
 #!/bin/bash
+# araz
 MYIP=$(curl -sS ipv4.icanhazip.com)
 echo "Checking VPS"
 #########################
