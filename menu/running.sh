@@ -216,9 +216,9 @@ fi
 # // NGINX
 nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
 if [[ $nginx == "running" ]]; then
-    status_nginx="${GREEN}Running${NC} ( No Eror )"
+    status_nginx="${GREEN}Running ${NC} ( No Eror )"
 else
-    status_nginx="${RED}No Running${NC} ( Eror )"
+    status_nginx="${RED}  Not Running ${NC} ( Eror )"
 fi
 
 
