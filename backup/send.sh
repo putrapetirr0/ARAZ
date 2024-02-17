@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Get date and time
 
@@ -39,11 +38,13 @@ send_file() {
  -F "document=@$file_path" \
  -F "caption=$caption"
 }
-send_file "$1" "Assalamualaikum kawanku
-Saya kirimkan file backup
+send_file "$1" "Assalamualaikum kawankuSaya kirimkan file backup
+Detail Backup 
+===========================
 Tanggal Backup : $DATE
 Your IP VPS    : $IP
 Your Domain    : $domain
+===========================
 Terima kasih
 Ingat harus sedekah!!!!
 waalaikumsalam wr wb " > /dev/null
