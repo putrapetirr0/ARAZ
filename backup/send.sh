@@ -1,14 +1,10 @@
 #!/bin/bash
-# Get date and time
 
 IP=$(wget -qO- ipinfo.io/ip);
 DATE=$(date +"%m-%d-%y")
 domain=$(cat /etc/xray/domain)
 ######################### Colours ############################
 ON_BLUE=$(echo -e "\033[44m")
-RED=$(echo -e "\033[1;31m")
-BLUE=$(echo -e "\033[1;34m")
-GREEN=$(echo -e "\033[1;32m")
 STD=$(echo -e "\033[0m") # Clear colour
 ######################## BOT INFO ############################
 echo "Please enter your bot token"
