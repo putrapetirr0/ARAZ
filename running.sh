@@ -2,7 +2,7 @@
 # Bismillah
 # Assalamualaikum
 # By ARAZ1308
-# =========================================
+# ========================================
 
 # // Exporting Language to UTF-8
 export LC_ALL='en_US.UTF-8'
