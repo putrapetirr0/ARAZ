@@ -1,5 +1,5 @@
 [Unit]
-Description=Python Proxy by araz1308
+Description=Python Proxy by araz
 Documentation=@araz1308
 After=network.target nss-lookup.target
 
