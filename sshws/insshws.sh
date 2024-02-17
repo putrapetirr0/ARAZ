@@ -1,5 +1,5 @@
 #!/bin/bash
-#installer Websocker tunneling 
+#installer Websocker
 
 cd
 
