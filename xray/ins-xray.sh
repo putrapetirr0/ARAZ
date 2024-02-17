@@ -459,8 +459,8 @@ END
 # Installing Trojan Go Service
 cat > /etc/systemd/system/trojan-go.service << END
 [Unit]
-Description=Trojan-Go Service Mod By ADAM ARAZ
-Documentation=github.com/adammoi/vipies
+Description=Trojan-Go Service By araz1308
+Documentation=https://t.me/araz1308
 After=network.target nss-lookup.target
 
 [Service]
@@ -480,6 +480,19 @@ END
 cat > /etc/trojan-go/uuid.txt << END
 $uuid
 END
+
+# restart
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
+iptables-save > /etc/iptables.up.rules
+iptables-restore -t < /etc/iptables.up.rules
+netfilter-persistent save
+netfilter-persistent reload
+systemctl daemon-reload
+systemctl stop trojan-go
+systemctl start trojan-go
+systemctl enable trojan-go
+systemctl restart trojan-go
 
 #nginx config
 cat >/etc/nginx/conf.d/xray.conf <<EOF
