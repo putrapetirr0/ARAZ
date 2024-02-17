@@ -1,4 +1,5 @@
 #!/bin/bash
+# araz
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 
