@@ -39,8 +39,8 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
 systemctl restart trojan-go.service
-link="trojan-go://${uuid}@isi_bug_disini:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=%2Ftrojango#$user"
-link1="trojan://${uuid}@isi_bug_disini:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=%2Ftrojango#$user"
+link="trojan-go://${uuid}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=%2Ftrojango#$user"
+link1="trojan://${uuid}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=%2Ftrojango#$user"
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "\E[0;41;36m          TROJAN GO          \E[0m" | tee -a /etc/log-create-user.log
@@ -58,7 +58,6 @@ echo -e "========================="
 echo -e "Link TrGo  		: ${link}" | tee -a /etc/log-create-user.log
 echo -e "Link TrGo (v2rayNG)	: ${link1}" | tee -a /etc/log-create-user.log
 echo -e "========================="
-echo -e "Script Mod By ADAM SIJA"
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
 
