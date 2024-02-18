@@ -26,7 +26,7 @@ sts="${Error}"
 fi
 function start() {
 BOT_TOKEN=$(cat /home/bot)
-if [[ "$BOT_TOKEN" = "" ]]; then
+if [[ "$BOT_TOKEN" = "" ]];
 echo "Please enter your bot token"
 read -rp "BOT_TOKEN : " -e BOT_TOKEN
 cat <<EOF>>/home/bot
@@ -34,7 +34,7 @@ $BOT_TOKEN
 EOF
 fi
 CHAT_ID=$(cat /home/chat)
-if [[ "$CHAT_ID" = "" ]]; then
+if [[ "$CHAT_ID" = "" ]];
 echo "Please enter your chat id"
 read -rp "CHAT_ID : " -e CHAT_ID
 cat <<EOF>>/home/chat
@@ -72,7 +72,7 @@ exit 0
 function gantipenerima() {
 rm -rf /home/bot
 BOT_TOKEN=$(cat /home/bot)
-if [[ "$BOT_TOKEN" = "" ]]; then
+if [[ "$BOT_TOKEN" = "" ]];
 echo "Please enter your bot token"
 read -rp "BOT_TOKEN : " -e BOT_TOKEN
 cat <<EOF>>/home/bot
@@ -81,7 +81,7 @@ EOF
 fi
 rm -rf /home/chat
 CHAT_ID=$(cat /home/chat)
-if [[ "$CHAT_ID" = "" ]]; then
+if [[ "$CHAT_ID" = "" ]];
 echo "Please enter your chat id"
 read -rp "CHAT_ID : " -e CHAT_ID
 cat <<EOF>>/home/chat
