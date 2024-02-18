@@ -26,7 +26,7 @@ sts="${Error}"
 fi
 function start() {
 BOT_TOKEN=$(cat /home/bot)
-if [[ "$BOT_TOKEN" = "" ]];
+if [[ "$BOT_TOKEN" = "" ]]; then
 echo "Please enter your bot token"
 read -rp "BOT_TOKEN : " -e BOT_TOKEN
 cat <<EOF>>/home/bot
@@ -34,7 +34,7 @@ $BOT_TOKEN
 EOF
 fi
 CHAT_ID=$(cat /home/chat)
-if [[ "$CHAT_ID" = "" ]];
+if [[ "$CHAT_ID" = "" ]]; then
 echo "Please enter your chat id"
 read -rp "CHAT_ID : " -e CHAT_ID
 cat <<EOF>>/home/chat
@@ -43,7 +43,7 @@ EOF
 fi
 cat << EOF >> /etc/crontab
 # BEGIN_Backup
-0-59/30 * * * * /usr/bin/backup-telegram
+5 0 * * * /usr/bin/backup-telegram
 # END_Backup
 EOF
 service cron restart
@@ -51,7 +51,7 @@ sleep 1
 echo " Please Wait"
 clear
 echo " Autobackup Has Been Started"
-echo " Data di backup setiap 30 menit"
+echo " Data Will Be Backed Up Automatically at 00:05 GMT +7"
 exit 0
 }
 function stop() {
@@ -59,7 +59,7 @@ BOT_TOKEN=$(cat /home/bot)
 sed -i "/^$BOT_TOKEN/d" /home/bot
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 CHAT_ID=$(cat /home/chat)
-sed -i "/^$CHAT_ID/d" /home/chat
+sed -i "/^$BOT_TOKEN/d" /home/chat
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 service cron restart
 sleep 1
@@ -71,19 +71,14 @@ exit 0
 
 function gantipenerima() {
 rm -rf /home/bot
-BOT_TOKEN=$(cat /home/bot)
-if [[ "$BOT_TOKEN" = "" ]];
 echo "Please enter your bot token"
-read -rp "BOT_TOKEN : " -e BOT_TOKEN
+read -rp "Bot_token : " -e bot_token
 cat <<EOF>>/home/bot
 $BOT_TOKEN
 EOF
-fi
 rm -rf /home/chat
-CHAT_ID=$(cat /home/chat)
-if [[ "$CHAT_ID" = "" ]];
 echo "Please enter your chat id"
-read -rp "CHAT_ID : " -e CHAT_ID
+read -rp "Bot_token : " -e bot_token
 cat <<EOF>>/home/chat
 $CHAT_ID
 EOF
