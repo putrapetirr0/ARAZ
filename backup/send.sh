@@ -21,8 +21,8 @@ echo "${GREEN} DATE:$DATE ${STD}"
 echo "_____________________________________"
 echo " "
 ######################## BOT INFO ############################
-BOT_TOKEN=$(cat /home/bot)
-CHAT_ID=$(cat /home/chat)
+BOT_TOKEN=$(sed '/^$/d' /home/bot)
+CHAT_ID=$(sed '/^$/d' /home/chat)
 file_path=""
  
 # Function to send a file to Telegram
