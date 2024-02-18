@@ -40,8 +40,8 @@ Detail Backup
 ======================
 Tanggal Backup : $DATE
 ======================
-Your IP VPS  : $IP
-Domain       : $domain
+Your IP VPS : $IP
+Domain      : $domain
 ======================
 Terima kasih
 Ingat harus sedekah!!!!
