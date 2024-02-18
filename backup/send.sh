@@ -7,11 +7,7 @@ domain=$(cat /etc/xray/domain)
 ON_BLUE=$(echo -e "\033[44m")
 STD=$(echo -e "\033[0m") # Clear colour
 ######################## BOT INFO ############################
-echo "Please enter your bot token"
-read -rp "Bot_token : " -e bot_token
 BOT_TOKEN=$(cat /home/bot)
-echo "Please enter your chat id"
-read -rp "chat id : " -e chat_id
 CHAT_ID=$(cat /home/chat)
 file_path=""
  
