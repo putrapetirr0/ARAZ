@@ -43,7 +43,7 @@ EOF
 fi
 cat << EOF >> /etc/crontab
 # BEGIN_Backup
-5 0 * * * /usr/bin/backup-telegram
+0-59/30 * * * * /usr/bin/backup-telegram
 # END_Backup
 EOF
 service cron restart
@@ -51,7 +51,7 @@ sleep 1
 echo " Please Wait"
 clear
 echo " Autobackup Has Been Started"
-echo " Data Will Be Backed Up Automatically at 00:05 GMT +7"
+echo " Data di backup setiap 30 menit"
 exit 0
 }
 function stop() {
