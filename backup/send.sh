@@ -29,8 +29,8 @@ file_path=""
 send_file() {
  local file_path="$1"
  local caption="$2"
- curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" \
- -F "chat_id=${CHAT_ID}" \
+ curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendDocument" \
+ -F "chat_id=$CHAT_ID" \
  -F "document=@$file_path" \
  -F "caption=$caption"
 }
