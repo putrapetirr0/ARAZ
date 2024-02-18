@@ -21,6 +21,7 @@ echo -e " [\e[36m•10\e[0m] Autobackup Data VPS"
 echo -e " [\e[36m•11\e[0m] Backup Data VPS"
 echo -e " [\e[36m•12\e[0m] Restore Data VPS"
 echo -e " [\e[36m•13\e[0m] Backup-telegram"
+echo -e " [\e[36m•14\e[0m] Autobackup-telegram"
 echo -e ""
 echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e   ""
@@ -44,6 +45,7 @@ case $opt in
 11) clear ; backup ; exit ;;
 12) clear ; restore ; exit ;;
 13) clear ; backup-telegram ; exit ;;
+14) clear ; autobackup-telegram ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo -e "" ; echo "Anda salah tekan" ; sleep 1 ; menu-set ;;
