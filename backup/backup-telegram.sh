@@ -39,6 +39,7 @@ cd /root
 zip -r $IP-backup-data.zip backup > /dev/null 2>&1
 wget send.sh "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/send.sh"
 chmod +x send.sh
+bash send.sh $IP-backup-data.zip
 rm -rf /root/backup
 rm -r /root/$IP-backup-data.zip
 rm -r /root/send.sh
