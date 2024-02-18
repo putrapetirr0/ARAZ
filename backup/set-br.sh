@@ -50,11 +50,13 @@ wget -O restore "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup
 wget -O strt "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/strt.sh"
 wget -O limitspeed "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/limitspeed.sh"
 wget -O backup-telegram "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/backup-telegram.sh"
+wget -O autobackup-telegram "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/autobackup-telegram.sh"
 chmod +x autobackup
 chmod +x backup
 chmod +x restore
 chmod +x strt
 chmod +x limitspeed
 chmod +x backup-telegram
+chmod +x autobackup-telegram
 cd
 rm -f /root/set-br.sh
