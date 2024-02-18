@@ -78,7 +78,7 @@ $BOT_TOKEN
 EOF
 rm -rf /home/chat
 echo "Please enter your chat id"
-read -rp "Bot_token : " -e bot_token
+read -rp "Chat_id : " -e bot_token
 cat <<EOF>>/home/chat
 $CHAT_ID
 EOF
