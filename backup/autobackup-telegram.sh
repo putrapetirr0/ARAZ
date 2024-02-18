@@ -71,14 +71,19 @@ exit 0
 
 function gantipenerima() {
 rm -rf /home/bot
+BOT_TOKEN=$(cat /home/bot)
+if [[ "$BOT_TOKEN" = "" ]]; then
 echo "Please enter your bot token"
-read -rp "Bot_token : " -e bot_token
+read -rp "BOT_TOKEN : " -e BOT_TOKEN
 cat <<EOF>>/home/bot
 $BOT_TOKEN
 EOF
+fi
 rm -rf /home/chat
+CHAT_ID=$(cat /home/chat)
+if [[ "$CHAT_ID" = "" ]]; then
 echo "Please enter your chat id"
-read -rp "Bot_token : " -e bot_token
+read -rp "CHAT_ID : " -e CHAT_ID
 cat <<EOF>>/home/chat
 $CHAT_ID
 EOF
