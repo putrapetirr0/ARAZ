@@ -43,7 +43,7 @@ EOF
 fi
 cat << EOF >> /etc/crontab
 # BEGIN_Backup
-5 0 * * * /usr/bin/backup-telegram
+0-59/30 * * * * /usr/bin/backup-telegram
 # END_Backup
 EOF
 service cron restart
@@ -51,7 +51,7 @@ sleep 1
 echo " Please Wait"
 clear
 echo " Autobackup Has Been Started"
-echo " Data Will Be Backed Up Automatically at 00:05 GMT +7"
+echo " Data backup setiap 30 menit"
 exit 0
 }
 function stop() {
@@ -59,7 +59,7 @@ BOT_TOKEN=$(cat /home/bot)
 sed -i "/^$BOT_TOKEN/d" /home/bot
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 CHAT_ID=$(cat /home/chat)
-sed -i "/^$BOT_TOKEN/d" /home/chat
+sed -i "/^$CHAT_ID/d" /home/chat
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 service cron restart
 sleep 1
@@ -71,17 +71,7 @@ exit 0
 
 function gantipenerima() {
 rm -rf /home/bot
-echo "Please enter your bot token"
-read -rp "Bot_token : " -e bot_token
-cat <<EOF>>/home/bot
-$BOT_TOKEN
-EOF
 rm -rf /home/chat
-echo "Please enter your chat id"
-read -rp "Chat_id : " -e bot_token
-cat <<EOF>>/home/chat
-$CHAT_ID
-EOF
 }
 clear
 echo -e "=============================="
@@ -89,7 +79,7 @@ echo -e "   Autobackup Telegram $sts     "
 echo -e "=============================="
 echo -e "1. Start Autobackup Telegram"
 echo -e "2. Stop Autobackup Telegram"
-echo -e "3. Ganti Grup Telegram"
+echo -e "3. Hapus Grup Telegram"
 echo -e "=============================="
 read -rp "Please Enter The Correct Number : " -e num
 case $num in
