@@ -59,7 +59,7 @@ BOT_TOKEN=$(cat /home/bot)
 sed -i "/^$BOT_TOKEN/d" /home/bot
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 CHAT_ID=$(cat /home/chat)
-sed -i "/^$BOT_TOKEN/d" /home/chat
+sed -i "/^$CHAT_ID/d" /home/chat
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 service cron restart
 sleep 1
