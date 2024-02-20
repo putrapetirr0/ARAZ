@@ -15,12 +15,21 @@ LIGHT='\033[0;37m'
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 date=$(date +"%Y-%m-%d");
-echo
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
+Info="${Green_font_prefix}[ON]${Font_color_suffix}"
+Error="${Red_font_prefix}[OFF]${Font_color_suffix}"
+cek=$(grep -c -E "^# BEGIN_Backup" /etc/crontab)
+if [[ "$cek" = "1" ]]; then
+sts="${Info}"
+else
+sts="${Error}"
+fi
+function () {
 BOT_TOKEN=$(cat /home/botdet)
 if [[ "$BOT_TOKEN" = "" ]]; then
 echo "Please enter your bot token"
 read -rp "BOT_TOKEN : " -e BOT_TOKEN
-cat <<EOF>>/home/bot
+cat <<EOF>>/home/botdet
 $BOT_TOKEN
 EOF
 fi
@@ -28,10 +37,11 @@ CHAT_ID=$(cat /home/chatdet)
 if [[ "$CHAT_ID" = "" ]]; then
 echo "Please enter your chat id"
 read -rp "CHAT_ID : " -e CHAT_ID
-cat <<EOF>>/home/chat
+cat <<EOF>>/home/chatdet
 $CHAT_ID
 EOF
 fi
+
 read -n 1 -s -r -p "Press any key to back on menu"
 
 menu
