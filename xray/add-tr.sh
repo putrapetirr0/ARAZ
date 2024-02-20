@@ -44,6 +44,38 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 systemctl restart xray
 trojanlink1="trojan://${uuid}@${domain}:${tr}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
 trojanlink="trojan://${uuid}@${domain}:${tr}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+BOT_TOKEN="$(sed '/^$/d' /home/botdet)"
+CHAT_ID="$(sed '/^$/d' /home/chatdet)"
+file_path=""
+# Function to send a message to Telegram
+send_message() {
+  local message="$1"
+ curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+ -d "chat_id=$CHAT_ID" \
+ -d "text=$message"
+}
+send_message "
+     Detail Account 
+━━━━━━━━━━━━━━━━━━━━━━━━━
+USERNAME  : $user
+
+DOMAIN    : $domain
+
+ID        : $uuid
+
+EXPIRED   : $exp
+
+Link WS   : ${trojanlink}
+
+Link GRPC : ${trojanlink1}
+
+"
+echo " "
+echo "_____________________________________"
+echo " "
+echo " ${RED} Message Sent ${STD}"
+echo "_____________________________________"
+echo " "
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m           Trial TROJAN           \E[0m"
