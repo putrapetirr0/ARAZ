@@ -46,6 +46,40 @@ vlesslink1="vless://${uuid}@${domain}:$tls?path=/vless&security=tls&encryption=n
 vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#${user}"
 vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
+ ######################## send det ############################
+BOT_TOKEN="$(sed '/^$/d' /home/botdet)"
+CHAT_ID="$(sed '/^$/d' /home/chatdet)"
+file_path=""
+# Function to send a message to Telegram
+send_message() {
+  local message="$1"
+ curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+ -d "chat_id=$CHAT_ID" \
+ -d "text=$message"
+}
+send_message "
+     Detail Account 
+━━━━━━━━━━━━━━━━━━━━━━━━━
+USERNAME  : $user
+
+DOMAIN    : $domain
+
+ID        : $uuid
+
+EXPIRED   : $exp
+
+LINK TLS  : ${vlesslink1}
+
+LINK NTLS : ${vlesslink2}
+
+LINK GRPC : ${vlesslink3}
+"
+echo " "
+echo "_____________________________________"
+echo " "
+echo " ${RED} Message Sent ${STD}"
+echo "_____________________________________"
+echo " "
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "\E[44;1;39m        Xray/Vless Account        \E[0m" | tee -a /etc/log-create-user.log
