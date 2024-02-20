@@ -36,4 +36,5 @@ Domain      : $domain
 Terima kasih
 Ingat harus sedekah!!!!
 waalaikumsalam wr wb " > /dev/null
+clear
 echo " ${ON_BLUE} cek file di telegram grup.... ${STD}"
