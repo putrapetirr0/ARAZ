@@ -12,6 +12,7 @@ echo -e " [\e[36m•2\e[0m] Trial Account XRAY Vmess "
 echo -e " [\e[36m•3\e[0m] Extending Account XRAY Vmess Active Life "
 echo -e " [\e[36m•4\e[0m] Delete Account XRAY Vmess Websocket "
 echo -e " [\e[36m•5\e[0m] Check User Login XRAY Vmess "
+echo -e " [\e[36m•6\e[0m] Add telegram for send detail account "
 echo -e ""
 echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e ""
@@ -27,6 +28,7 @@ case $opt in
 3) clear ; renew-ws ; exit ;;
 4) clear ; del-ws ; exit ;;
 5) clear ; cek-ws ; exit ;;
+5) clear ; addbot ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
