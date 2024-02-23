@@ -625,6 +625,9 @@ systemctl enable trojan-go
 systemctl restart trojan-go
 
 cd /usr/bin/
+# addbot
+wget -O addbot "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/addbot.sh" && chmod +x addbot
+
 # vmess
 wget -O add-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/add-ws.sh" && chmod +x add-ws
 wget -O trialvmess "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/trialvmess.sh" && chmod +x trialvmess
