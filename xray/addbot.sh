@@ -41,7 +41,4 @@ cat <<EOF>>/home/chatdet
 $CHAT_ID
 EOF
 fi
-
-read -n 1 -s -r -p "Press any key to back on menu"
-
-menu
+clear
