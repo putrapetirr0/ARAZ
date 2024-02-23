@@ -24,7 +24,6 @@ sts="${Info}"
 else
 sts="${Error}"
 fi
-function () {
 BOT_TOKEN=$(cat /home/botdet)
 if [[ "$BOT_TOKEN" = "" ]]; then
 echo "Please enter your bot token"
