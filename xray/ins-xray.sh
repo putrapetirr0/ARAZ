@@ -627,6 +627,7 @@ systemctl restart trojan-go
 cd /usr/bin/
 # addbot
 wget -O addbot "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/addbot.sh" && chmod +x addbot
+wget -O testdns "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/testdns.sh" && chmod +x testdns
 
 # vmess
 wget -O add-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/add-ws.sh" && chmod +x add-ws
