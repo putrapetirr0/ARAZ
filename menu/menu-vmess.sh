@@ -28,7 +28,7 @@ case $opt in
 3) clear ; renew-ws ; exit ;;
 4) clear ; del-ws ; exit ;;
 5) clear ; cek-ws ; exit ;;
-5) clear ; addbot ; exit ;;
+6) clear ; addbot ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
