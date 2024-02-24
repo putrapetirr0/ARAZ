@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 domen=$(sed '/^$/d' /home/dom)
-rm -rf /root/$domen
+rm -rf /home/$domen
 clear
 if [[ "$domen" = "" ]]; then
 echo "Please enter your domain"
@@ -25,8 +25,8 @@ $domen
 EOF
 fi
 echo
-knockpy $domen -o /root/$domen
-cd /root
+knockpy $domen -o /home/$domen
+cd /home
 zip -r $domen.zip $domen > /dev/null 2>&1
 ######################## BOT INFO ############################
 BOT_TOKEN=$(sed '/^$/d' /home/botdet)
@@ -45,8 +45,8 @@ send_file() {
 send_file "$domen.zip" "Assalamualaikum 
 kawanku saya kirimkan file hasil pencarianku"
 rm -rf /home/dom
-rm -r /root/$domen
-rm -r /root/$domen.zip
+rm -r /home/$domen
+rm -r /home/$domen.zip
 clear
 echo " ${ON_BLUE} cek file di telegram grup.... ${STD}"
 clear
