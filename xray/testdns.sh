@@ -14,8 +14,9 @@ LIGHT='\033[0;37m'
 # Getting
 clear
 IP=$(wget -qO- ipinfo.io/ip);
-domen=$(sed '/^$/d' /home/dom)
-rm -rf /home/$domen
+domen=$(sed '/^$/d' /home/dom);
+cd /home
+rm -r $domen
 clear
 if [[ "$domen" = "" ]]; then
 echo "Please enter your domain"
@@ -43,10 +44,11 @@ send_file() {
  -F "caption=$caption"
 }
 send_file "$domen.zip" "Assalamualaikum 
-kawanku saya kirimkan file hasil pencarianku"
-rm -rf /home/dom
-rm -r /home/$domen
-rm -r /home/$domen.zip
+kawanku saya kirimkan file hasil pencarian BUG ku"
+cd /home
+rm dom
+rm -r $domen
+rm $domen.zip
 clear
 echo " ${ON_BLUE} cek file di telegram grup.... ${STD}"
 clear
