@@ -618,9 +618,6 @@ systemctl enable trojan-go
 systemctl restart trojan-go
 
 cd /usr/bin/
-# addbot
-wget -O addbot "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/addbot.sh" && chmod +x addbot
-wget -O testdns "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/testdns.sh" && chmod +x testdns
 
 # vmess
 wget -O add-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/add-ws.sh" && chmod +x add-ws
@@ -649,6 +646,10 @@ wget -O trialtrojango "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/
 wget -O deltrgo "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/deltrgo.sh" && chmod +x deltrgo
 wget -O renewtrgo "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/renewtrgo.sh" && chmod +x renewtrgo
 wget -O cektrgo "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/cektrgo.sh" && chmod +x cektrgo
+
+# addbot
+wget -O addbot "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/addbot.sh" && chmod +x addbot
+wget -O testdns "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/testdns.sh" && chmod +x testdns
 
 
 sleep 1
