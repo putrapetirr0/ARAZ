@@ -459,22 +459,25 @@ END
 # Installing Trojan Go Service
 rm -rf /etc/systemd/system/trojan-go.service
 rm -rf /etc/systemd/system/trojan-go@.service
-cat <<EOF> /etc/systemd/system/trojan-go.service
-Description=Trojan-Go Service By araz1308
-Documentation=https://t.me/araz1308
+cat > /etc/systemd/system/trojan-go.service << END
+[Unit]
+Description=Trojan-Go - An unidentifiable mechanism that helps you bypass GFW
+Documentation=https://p4gefau1t.github.io/trojan-go/
 After=network.target nss-lookup.target
 
 [Service]
-User=root
+User=nobody
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/trojan-go -config /etc/trojan-go/config.json
+ExecStart=/usr/bin/trojan-go -config /etc/trojan-go/config.json
 Restart=on-failure
-RestartPreventExitStatus=23
+RestartSec=10s
+LimitNOFILE=infinity
 
 [Install]
 WantedBy=multi-user.target
+END
 
 # Trojan Go Uuid
 cat > /etc/trojan-go/uuid.txt << END
