@@ -176,9 +176,14 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/warp%20cloudflare/warp.sh && chmod +x warp.sh && ./warp.sh
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install knockpy       $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 git clone https://github.com/guelfoweb/knock.git
 cd knock
 python3 setup.py install
+cd
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
