@@ -82,7 +82,7 @@ cron_service=$(/etc/init.d/cron status | grep Active | awk '{print $3}' | cut -d
 fail2ban_service=$(/etc/init.d/fail2ban status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 #wg="$(systemctl show wg-quick@wg0.service --no-page)"
 #swg=$(echo "${wg}" | grep 'ActiveState=' | cut -f2 -d=)
-trgo=$(systemctl status trojan-go | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+trgo=$(systemctl show trojan-go.service --no-page | grep 'ActiveState=' | cut -f2 -d=)
 #sswg=$(systemctl status wg-quick@wg0 | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wstls=$(systemctl status ws-stunnel.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsdrop=$(systemctl status ws-dropbear.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
@@ -180,7 +180,7 @@ else
    status_virus_trojan="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 # Status Service Trojan GO
-if [[ $strgo == "running" ]]; then
+if [[ $trgo == "activating" ]]; then
   status_trgo=" ${GREEN}Running ${NC}( No Error )${NC}"
 else
   status_trgo="${RED}  Not Running ${NC}  ( Error )${NC}"
@@ -215,9 +215,9 @@ fi
 # // NGINX
 nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
 if [[ $nginx == "running" ]]; then
-    status_nginx="${GREEN}Running ${NC} ( No Eror )"
+   status_nginx="${GREEN}Running ${NC}( No Error )${NC}"
 else
-    status_nginx="${RED}  Not Running ${NC} ( Eror )"
+   status_nginx="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 
 
@@ -268,7 +268,7 @@ echo -e "❇️ Total RAM   : ${totalram}MB"
 echo -e "❇️ Public IP   : $MYIP"
 echo -e "❇️ Domain      : $Domen"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m          ⇱ Subscription Information ⇲          \E[0m"
+echo -e "\E[44;1;39m            ⇱ Script By ARAZ1308 ⇲              \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "\E[44;1;39m            ⇱ Service Information ⇲             \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
@@ -280,7 +280,7 @@ echo -e "❇️ Squid                   :$status_squid"
 echo -e "❇️ Fail2Ban                :$status_fail2ban"
 echo -e "❇️ Crons                   :$status_cron"
 echo -e "❇️ Vnstat                  :$status_vnstat"
-echo -e "❇️ Nginx                   :$status_nginx"
+echo -e "❇️ Nginx                   : $status_nginx"
 echo -e "❇️ XRAYS Vmess TLS         :$status_tls_v2ray"
 echo -e "❇️ XRAYS Vmess None TLS    :$status_nontls_v2ray"
 echo -e "❇️ XRAYS Vless TLS         :$status_tls_vless"
