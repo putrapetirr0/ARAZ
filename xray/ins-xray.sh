@@ -457,8 +457,9 @@ cat > /etc/trojan-go/config.json << END
 END
 
 # Installing Trojan Go Service
-cat > /etc/systemd/system/trojan-go.service << END
-[Unit]
+rm -rf /etc/systemd/system/trojan-go.service
+rm -rf /etc/systemd/system/trojan-go@.service
+cat <<EOF> /etc/systemd/system/trojan-go.service
 Description=Trojan-Go Service By araz1308
 Documentation=https://t.me/araz1308
 After=network.target nss-lookup.target
@@ -474,7 +475,6 @@ RestartPreventExitStatus=23
 
 [Install]
 WantedBy=multi-user.target
-END
 
 # Trojan Go Uuid
 cat > /etc/trojan-go/uuid.txt << END
