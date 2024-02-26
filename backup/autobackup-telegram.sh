@@ -43,7 +43,7 @@ EOF
 fi
 cat << EOF >> /etc/crontab
 # BEGIN_Backup
-0-59/30 * * * * /usr/bin/backup-telegram
+* */1 * * * root /usr/bin/backup-telegram
 # END_Backup
 EOF
 service cron restart
