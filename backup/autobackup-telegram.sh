@@ -51,7 +51,7 @@ sleep 1
 echo " Please Wait"
 clear
 echo " Autobackup Has Been Started"
-echo " Data backup setiap 30 menit"
+echo " Data backup setiap 1 jam"
 exit 0
 }
 function stop() {
