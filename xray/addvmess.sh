@@ -6,12 +6,18 @@ generate_uuid() {
 }
 
 # Fungsi untuk membuat akun VMess dengan dua link
-create_vmess_account() {
+create_vmess_account()
     username="$1"
+    expired_date="$2"
     uuid=$(generate_uuid)  # Menghasilkan UUID acak
     server_ip=$(hostname -I | awk '{print $1}') # Mengambil alamat IP dari sistem Linux
     domain=$(hostname) # Mengambil nama host (domain) dari sistem Linux
-    account_duration="30 days"  # Masa aktif akun dalam format "x days"
+echo "Username: $username"
+echo "Expired Date: $expired_date"
+
+# Meminta input dari pengguna
+read -p "Masukkan username: " username
+read -p "Masukkan tanggal kedaluwarsa akun (yyyy-mm-dd): " expired_date
 
     # Membuat konfigurasi pengguna VMess untuk link TLS (port 443)
     cat > /etc/v2ray/users/${username}_tls.json << EOF
