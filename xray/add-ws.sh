@@ -44,7 +44,7 @@ sed -i '/#vmess$/a\### '"$user $exp"'\
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-acs=`cat<<EOF
+acs= 'cat > /etc/xray/${user}_tls.json << EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -59,7 +59,7 @@ acs=`cat<<EOF
       "tls": "tls"
 }
 EOF`
-ask=`cat<<EOF
+ask= 'cat > /etc/xray/${user}_none_tls.json << EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -74,7 +74,7 @@ ask=`cat<<EOF
       "tls": "none"
 }
 EOF`
-grpc=`cat<<EOF
+grpc=`cat > /etc/xray/${user}_grpc.json << EOF
       {
       "v": "2",
       "ps": "${user}",
