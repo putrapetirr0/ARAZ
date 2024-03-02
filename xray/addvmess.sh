@@ -34,8 +34,39 @@ view_vmess_account() {
     fi
 }
 
-# Meminta input dari pengguna
-read -p "Masukkan username akun VMess: " user
+# Mendapatkan daftar username dari file konfigurasi VMess
+vmess_config="/etc/xray/vmess"
+if [[ -f "$vmess_config" ]]; then
+    usernames=($(awk -F: '{print $1}' "$vmess_config"))
+    if [[ ${#usernames[@]} -eq 0 ]]; then
+        echo "Tidak ada akun VMess yang tersedia."
+        exit 1
+    fi
+else
+    echo "File konfigurasi VMess tidak ditemukan di $vmess_config"
+    exit 1
+fi
 
-# Melihat detail akun VMess dengan fungsi yang telah ditentukan
-view_vmess_account "$user"
+# Menampilkan daftar username
+echo "Daftar Username Akun VMess:"
+echo "============================"
+for i in "${!usernames[@]}"; do
+    echo "$(($i + 1)). ${usernames[$i]}"
+done
+echo "============================"
+
+# Meminta input dari pengguna
+read -p "Masukkan nomor akun VMess untuk melihat detailnya: " choice
+
+# Validasi pilihan pengguna
+if [[ $choice =~ ^[0-9]+$ ]]; then
+    index=$(($choice - 1))
+    if [[ $index -ge 0 && $index -lt ${#usernames[@]} ]]; then
+        username="${usernames[$index]}"
+        view_vmess_account "$username"
+    else
+        echo "Nomor yang dimasukkan tidak valid."
+    fi
+else
+    echo "Nomor yang dimasukkan tidak valid."
+fi
