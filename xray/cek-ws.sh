@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 
 clear
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '^####' | cut -d ' ' -f 2`);
+data=( `cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2`);
 echo "----------------------------------------";
 echo "---------=[ Vmess User Login ]=---------";
 echo "----------------------------------------";
@@ -52,5 +52,5 @@ oth=$(cat /tmp/other.txt | sort | uniq | nl)
 echo "other";
 echo "$oth";
 echo "----------------------------------------"
-echo "Script Mod By ADAM SIJA"
+echo "Script Mod By ARAZ1308"
 rm -rf /tmp/other.txt
