@@ -7,8 +7,8 @@ view_vmess_account() {
     # Mendapatkan detail akun VMess dari file konfigurasi
     local vmess_config="/etc/xray/config.json"
     if [[ -f "$vmess_config" ]]; then
-        local username=$(jq -r ".inbounds[0].settings.clients[] | select(.id == \"$user\") | .email" "$vmess_config")
-        local uuid=$(jq -r ".inbounds[0].settings.clients[] | select(.id == \"$user\") | .id" "$vmess_config")
+        local username=$(jq -r ".inbounds[0].settings.clients | map(select(.id == \"$user\")) | .[0].email" "$vmess_config")
+        local uuid=$(jq -r ".inbounds[0].settings.clients | map(select(.id == \"$user\")) | .[0].id" "$vmess_config")
         local port=$(jq -r '.inbounds[0].port' "$vmess_config")
         
         if [[ -n "$username" && -n "$uuid" && -n "$port" ]]; then
