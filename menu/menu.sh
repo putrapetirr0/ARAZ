@@ -79,7 +79,7 @@ clear
 echo -e "\e[33m 	    Telegram : https://t.me/araz1308      \e[0m"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[33m		    ARAZ1308		   		\033[0m"
+echo -e "\e[32m		     A r A z 1 3 0 8		   	  \032[0m"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "                                                                                         "
 echo -e "\e[33m Operating System     \e[0m:  "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
