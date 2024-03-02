@@ -44,7 +44,9 @@ sed -i '/#vmess$/a\### '"$user $exp"'\
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-acs= 'cat > /etc/xray/${user}_tls.json << EOF
+mkdir /etc/xray/vmess
+clear
+cat > /etc/xray/vmess/${user}_tls.json << EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -58,8 +60,8 @@ acs= 'cat > /etc/xray/${user}_tls.json << EOF
       "host": "${domain}",
       "tls": "tls"
 }
-EOF`
-ask= 'cat > /etc/xray/${user}_none_tls.json << EOF
+EOF
+cat > /etc/xray/vmess/${user}_none_tls.json << EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -73,8 +75,8 @@ ask= 'cat > /etc/xray/${user}_none_tls.json << EOF
       "host": "${domain}",
       "tls": "none"
 }
-EOF`
-grpc=`cat > /etc/xray/${user}_grpc.json << EOF
+EOF
+cat > /etc/xray/vmess/${user}_grpc.json << EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -88,15 +90,13 @@ grpc=`cat > /etc/xray/${user}_grpc.json << EOF
       "host": "${domain}",
       "tls": "tls"
 }
-EOF`
+EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
-vmesslink1="vmess://$(echo $acs | base64 -w 0)"
-vmesslink2="vmess://$(echo $ask | base64 -w 0)"
-vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
-systemctl restart xray > /dev/null 2>&1
-service cron restart > /dev/null 2>&1
+vmesslink1="vmess://$(cat /etc/xray/vmess/${user}_tls.json | base64 -w 0)"
+vmesslink2="vmess://$(cat /etc/xray/vmess/${user}_none_tls.json | base64 -w 0)"
+vmesslink3="vmess://$(cat /etc/xray/vmess/${user}_grpc.json | base64 -w 0)"
   ######################## send det ############################
 BOT_TOKEN="$(sed '/^$/d' /home/botdet)"
 CHAT_ID="$(sed '/^$/d' /home/chatdet)"
