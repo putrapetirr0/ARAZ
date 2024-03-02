@@ -1,71 +1,49 @@
 #!/bin/bash
 
-# Fungsi untuk menghasilkan UUID acak
-generate_uuid() {
-    cat /proc/sys/kernel/random/uuid
+# Fungsi untuk melihat detail akun VMess
+view_vmess_account() {
+    user="$1"
+    
+    # Menampilkan informasi akun yang sudah ada
+    echo "Detail akun VMess untuk pengguna $user:"
+    echo "Link TLS (Port 443):"
+    cat /etc/xray/vmess/${user}_tls.json
+    echo "Link Non-TLS (Port 80):"
+    cat /etc/xray/vmess/${user}}_non_tls.json
+    echo "UUID (Password): $(cat /etc/xray/vmess/${user}_tls.json | grep '\"id\"' | awk -F '"' '{print $4}')"
+    echo "Masa Aktif Akun: 30 days"  # Disesuaikan dengan kebutuhan Anda
 }
 
-# Fungsi untuk membuat akun VMess dengan dua link
-create_vmess_account()
-    username="$1"
-    expired_date="$2"
-    uuid=$(generate_uuid)  # Menghasilkan UUID acak
-    server_ip=$(hostname -I | awk '{print $1}') # Mengambil alamat IP dari sistem Linux
-    domain=$(hostname) # Mengambil nama host (domain) dari sistem Linux
-echo "Username: $username"
-echo "Expired Date: $expired_date"
+# Menampilkan header
+echo "====================================="
+echo "   SELAMAT DATANG DI PENGELOLA VMess"
+echo "====================================="
+echo
 
-# Meminta input dari pengguna
-read -p "Masukkan username: " username
-read -p "Masukkan tanggal kedaluwarsa akun (yyyy-mm-dd): " expired_date
+# Membersihkan layar
+clear
 
-    # Membuat konfigurasi pengguna VMess untuk link TLS (port 443)
-    cat > /etc/v2ray/users/${username}_tls.json << EOF
-{
-  "v": "2",
-  "ps": "$username (TLS)",
-  "add": "$server_ip",
-  "port": 443,
-  "id": "$uuid",
-  "aid": 64,
-  "net": "tcp",
-  "type": "http",
-  "host": "$domain",
-  "path": "/$username",
-  "tls": "tls"
-}
-EOF
+# Menampilkan daftar pengguna VMess yang tersedia
+echo "Daftar pengguna VMess yang tersedia:"
+index=1
+for file in /etc/xray/vmess/*_tls.json; do
+    user=$(basename "${file%_tls.json}")
+    echo "$index. $user"
+    ((index++))
+done
+echo
 
-    # Membuat konfigurasi pengguna VMess untuk link non-TLS (port 80)
-    cat > /etc/v2ray/users/${username}_non_tls.json << EOF
-{
-  "v": "2",
-  "ps": "$username (Non-TLS)",
-  "add": "$server_ip",
-  "port": 80,
-  "id": "$uuid",
-  "aid": 64,
-  "net": "tcp",
-  "type": "http",
-  "host": "$domain",
-  "path": "/$username",
-  "tls": ""
-}
-EOF
+# Meminta pengguna untuk memilih nomor pengguna
+read -p "Masukkan nomor pengguna yang ingin Anda lihat detailnya: " user_number
+echo
 
-    # Restart V2Ray
-    systemctl restart v2ray
+# Memilih nama pengguna berdasarkan nomor yang dimasukkan pengguna
+user=$(ls /etc/v2ray/users/*_tls.json | sed -n "${user_number}p" | sed -e 's/.*\///; s/_tls.json//')
 
-    # Menampilkan informasi akun yang dibuat
-    echo "Akun VMess berhasil dibuat untuk pengguna $username:"
-    echo "Link TLS: vmess://$(cat /etc/v2ray/users/${username}_tls.json | base64 -w 0)"
-    echo "Link Non-TLS: vmess://$(cat /etc/v2ray/users/${username}_non_tls.json | base64 -w 0)"
-    echo "Username: $username"
-    echo "UUID (Password): $uuid"
-    echo "Alamat IP Server: $server_ip"
-    echo "Domain: $domain"
-    echo "Masa Aktif Akun: $account_duration"
-}
+# Menampilkan detail akun VMess untuk pengguna yang dipilih
+view_vmess_account "$user"
 
-# Menjalankan fungsi untuk membuat akun VMess
-create_vmess_account "user1"
+# Menampilkan footer
+echo "====================================="
+echo "     Terima kasih telah menggunakan layanan kami - araz1308"
+echo "====================================="
