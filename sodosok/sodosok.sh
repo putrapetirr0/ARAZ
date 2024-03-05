@@ -26,8 +26,6 @@ echo -e "${NC}${LIGHT}WhatsApp : "
 echo -e "${NC}${LIGHT}Telegram : https://t.me/araz1308"
 exit 0
 fi
-# Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/araz1308/scriptku/main/shadowsocks"
 
 source /etc/os-release
 OS=$ID
@@ -117,10 +115,10 @@ iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2443:3543 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 ip6tables-save > /etc/ip6tables.up.rules
 cd /usr/bin
-wget -O addss "https://${akbarvpn}/addss.sh"
-wget -O delss "https://${akbarvpn}/delss.sh"
-wget -O cekss "https://${akbarvpn}/cekss.sh"
-wget -O renewss "https://${akbarvpn}/renewss.sh"
+wget -O addss "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/sodosok/addss.sh"
+wget -O delss "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/sodosok/delss.sh"
+wget -O cekss "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/sodosok/cekss.sh"
+wget -O renewss "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/sodosok/renewss.sh"
 chmod +x addss
 chmod +x delss
 chmod +x cekss
