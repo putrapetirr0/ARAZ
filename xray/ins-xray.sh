@@ -50,7 +50,7 @@ touch /var/log/xray/error.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
 # / / Ambil Xray Core Version Terbaru
-bash -c "$(curl -s https://github.com/XTLS/Xray-install/raw/main/install-releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)"
 
 ## crt xray
 systemctl stop nginx
