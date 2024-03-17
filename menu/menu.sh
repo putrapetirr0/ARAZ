@@ -91,6 +91,7 @@ tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 fram=$( free -m | awk 'NR==2 {print $4}' )
 xrayv=$( xray --version | awk 'NR==1{print $2}' )
+LOC=$(curl -s ifconfig.co/country )
 clear 
 echo -e "\e[33m 	    Telegram : https://t.me/araz1308      \e[0m"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -102,13 +103,13 @@ echo -e "\e[33m Operating System     \e[0m:  "`hostnamectl | grep "Operating Sys
 echo -e "\e[33m Total Amount Of RAM  \e[0m:  $tram MB"
 echo -e "\e[33m System Uptime        \e[0m:  $uptime "
 echo -e "\e[33m Isp Name             \e[0m:  $ISP"
+echo -e "\e[33m Country              \e[0m:  $LOC"
 echo -e "\e[33m Domain               \e[0m:  $domain"	
 echo -e "\e[33m Ip Vps               \e[0m:  $IPVPS"	
 echo -e "\e[33m Xray Version         \e[0m:  $xrayv"
-echo -e "
-echo -e "${red} ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "                   USER INFO                    "
-echo -e "${red} ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 echo -e "\e[33m User Ssh             \e[0m: $ssh1 Account"	
 echo -e "\e[33m User Vmess           \e[0m: $vmc Account"	
@@ -123,10 +124,10 @@ echo -e " [\e[36m•2\e[0m] Vmess Menu          [\e[36m•6\e[0m] Status Service
 echo -e " [\e[36m•3\e[0m] Vless Menu          [\e[36m•7\e[0m] Clear RAM Cache"
 echo -e " [\e[36m•4\e[0m] Trojan Go Menu      [\e[36m•8\e[0m] Pengaturan"                  
 echo -e   ""
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[1;32m Client Name       \e[0m: $Name"
-echo -e "\e[1;32m Expired           \e[0m: $Exp2"
-echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;32m Client Name        \e[0m: $Name"
+echo -e "\e[1;32m Expired            \e[0m: $Exp2"
+echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e   ""
 echo -e   " Press x or [ Ctrl+C ] • To-Exit-Script"
 echo -e   ""
