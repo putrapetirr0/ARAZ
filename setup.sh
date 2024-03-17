@@ -142,6 +142,12 @@ echo ""
 wget -q https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
+echo "Masukan Client Name"
+read -rp "client_name : " -e client_name
+cat <<EOF>>/home/client
+$client_name
+EOF
+clear
 yellow "Add Domain for vmess/vless/trojan dll"
 echo " "
 read -rp "Input ur domain : " -e pp
