@@ -188,14 +188,6 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
-#Instal AUTO BACKUP
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install Shadowsock        $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
-clear
-wget https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/sodosok/sodosok.sh && chmod +x sodosok.sh && ./sodosok.sh
-clear
 #Instal WARP CLOUDFLARE
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install WARP Cloudflare       $NC"
@@ -269,8 +261,6 @@ echo "   - Trojan GRPC		: 443" | tee -a log-install.txt
 echo "   - Trojan WS		: 443" | tee -a log-install.txt
 echo "   - Trojan Go		: 443" | tee -a log-install.txt
 echo "   - Shadowsocks-R        : 1443-1543"  | tee -a log-install.txt
-echo "   - SS-OBFS TLS          : 2443-2543"  | tee -a log-install.txt
-echo "   - SS-OBFS HTTP         : 3443-3543"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
 echo "   - Timezone		: Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
