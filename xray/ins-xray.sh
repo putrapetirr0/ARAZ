@@ -625,6 +625,7 @@ wget -O trialvmess "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xra
 wget -O renew-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/renew-ws.sh" && chmod +x renew-ws
 wget -O del-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/del-ws.sh" && chmod +x del-ws
 wget -O cek-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/cek-ws.sh" && chmod +x cek-ws
+wget -O mem-ws "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/mem-ws.sh" && chmod +x mem-ws
 
 # vless
 wget -O add-vless "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/add-vless.sh" && chmod +x add-vless
@@ -632,6 +633,7 @@ wget -O trialvless "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xra
 wget -O renew-vless "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/renew-vless.sh" && chmod +x renew-vless
 wget -O del-vless "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/del-vless.sh" && chmod +x del-vless
 wget -O cek-vless "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/cek-vless.sh" && chmod +x cek-vless
+wget -O mem-vless "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/mem-vless.sh" && chmod +x mem-vless
 
 # trojan
 wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/add-tr.sh" && chmod +x add-tr
@@ -639,6 +641,7 @@ wget -O trialtrojan "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xr
 wget -O del-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/del-tr.sh" && chmod +x del-tr
 wget -O renew-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/renew-tr.sh" && chmod +x renew-tr
 wget -O cek-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/cek-tr.sh" && chmod +x cek-tr
+wget -O mem-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/mem-tr.sh" && chmod +x mem-tr
 
 # trojan go
 wget -O addtrgo "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/addtrgo.sh" && chmod +x addtrgo
