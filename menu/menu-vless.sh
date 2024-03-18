@@ -12,6 +12,7 @@ echo -e " [\e[36m•2\e[0m] Trial Account XRAY Vless "
 echo -e " [\e[36m•3\e[0m] Extending Account XRAY Vless Active Life "
 echo -e " [\e[36m•4\e[0m] Delete Account XRAY Vless Websocket "
 echo -e " [\e[36m•5\e[0m] Check User Login XRAY Vless "
+echo -e " [\e[36m•6\e[0m] Check Member Vless "
 echo -e ""
 echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e ""
@@ -27,6 +28,7 @@ case $opt in
 3) clear ; renew-vless ; exit ;;
 4) clear ; del-vless ; exit ;;
 5) clear ; cek-vless ; exit ;;
+6) clear ; mem-vless ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
