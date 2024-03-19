@@ -21,6 +21,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 IZIN=$( curl https://raw.githubusercontent.com/araz1308/list/main/ijin.sh | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
+clear
 echo "${NC}${GREEN}Permission Accepted...${NC}"
 else
 echo "${NC}${RED}Permission Denied!${NC}";
