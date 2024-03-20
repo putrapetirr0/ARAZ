@@ -8,8 +8,6 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 acs=`cat<<EOF
       {
       "v": "2",
@@ -40,29 +38,43 @@ ask=`cat<<EOF
       "tls": "none"
 }
 EOF`
-grpc=`cat<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "443",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "grpc",
-      "path": "vmess-grpc",
-      "type": "none",
-      "host": "",
-      "tls": "tls"
-}
-EOF`
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
 vmesslink1="vmess://$(echo $acs | base64 -w 0)"
 vmesslink2="vmess://$(echo $ask | base64 -w 0)"
-vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
-systemctl restart xray > /dev/null 2>&1
-service cron restart > /dev/null 2>&1
+  ######################## send det ############################
+BOT_TOKEN="$(sed '/^$/d' /home/botdet)"
+CHAT_ID="$(sed '/^$/d' /home/chatdet)"
+file_path=""
+# Function to send a message to Telegram
+send_message() {
+  local message="$1"
+ curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
+ -d "chat_id=$CHAT_ID" \
+ -d "text=$message"
+}
+send_message "
+     Detail Account 
+━━━━━━━━━━━━━━━━━━━━━━━━━
+USERNAME  : $user
+
+DOMAIN    : $domain
+
+ID        : $uuid
+
+EXPIRED   : $exp
+
+LINK TLS  : ${vmesslink1}
+
+LINK NTLS : ${vmesslink2}
+"
+echo " "
+echo "_____________________________________"
+echo " "
+echo " ${RED} Message Sent ${STD}"
+echo "_____________________________________"
+echo " "
 clear
 
 
@@ -85,12 +97,11 @@ echo -e "Link TLS       : ${vmesslink1}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link none TLS  : ${vmesslink2}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link GRPC      : ${vmesslink3}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Expired On     : $exp"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
-
+systemctl restart xray > /dev/null 2>&1
+service cron restart > /dev/null 2>&1
 read -n 1 -s -r -p "Press any key to back on menu"
 
 menu
