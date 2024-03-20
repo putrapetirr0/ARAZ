@@ -38,12 +38,9 @@ read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\#! '"$user $exp $uuid"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#trojangrpc$/a\#trg '"$user $exp $uuid"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 trojanlink1="trojan://${uuid}@{domain}:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink2="trojan://${uuid}@${domain}:80?path=%2Ftrojan-ws&security=auto&host=${domain}&type=ws#${user}"
-trojanlink3="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
 clear
 BOT_TOKEN="$(sed '/^$/d' /home/botdet)"
 CHAT_ID="$(sed '/^$/d' /home/chatdet)"
@@ -66,12 +63,9 @@ ID        : $uuid
 
 EXPIRED   : $exp
 
-Link WSS  : ${trojanlink1}
+Link Tls  : ${trojanlink1}
 
-Link WS   : ${trojanlink2}
-
-Link GRPC : ${trojanlink2}
-
+Link None Tls   : ${trojanlink2}
 "
 echo " "
 echo "_____________________________________"
@@ -81,20 +75,17 @@ echo "_____________________________________"
 echo " "
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m           Trial TROJAN           \E[0m"
+echo -e "\E[0;41;36m           Akun TROJAN           \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks      : ${user}"
 echo -e "Host/IP      : ${domain}"
 echo -e "port         : ${tr}"
 echo -e "Key          : ${uuid}"
 echo -e "Path         : /trojan-ws"
-echo -e "ServiceName  : trojan-grpc"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link WSS      : ${trojanlink1}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link WS      : ${trojanlink2}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link GRPC    : ${trojanlink3}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Expired On   : $exp"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
