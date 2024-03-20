@@ -156,6 +156,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
+systemctl restart xray > /dev/null 2>&1
+service cron restart > /dev/null 2>&1
 read -n 1 -s -r -p "Press any key to back on menu"
 
 menu
