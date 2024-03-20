@@ -82,7 +82,7 @@ cron_service=$(/etc/init.d/cron status | grep Active | awk '{print $3}' | cut -d
 fail2ban_service=$(/etc/init.d/fail2ban status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 #wg="$(systemctl show wg-quick@wg0.service --no-page)"
 #swg=$(echo "${wg}" | grep 'ActiveState=' | cut -f2 -d=)
-trgo=$(systemctl show trojan-go.service --no-page | grep 'ActiveState=' | cut -f2 -d=)
+#trgo=$(systemctl show trojan-go.service --no-page | grep 'ActiveState=' | cut -f2 -d=)
 #sswg=$(systemctl status wg-quick@wg0 | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wstls=$(systemctl status ws-stunnel.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsdrop=$(systemctl status ws-dropbear.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
@@ -180,11 +180,11 @@ else
    status_virus_trojan="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 # Status Service Trojan GO
-if [[ $trgo == "activating" ]]; then
-  status_trgo=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-  status_trgo="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
+#if [[ $trgo == "activating" ]]; then
+  #status_trgo=" ${GREEN}Running ${NC}( No Error )${NC}"
+#else
+  #status_trgo="${RED}  Not Running ${NC}  ( Error )${NC}"
+#fi
 # STATUS SERVICE DROPBEAR
 if [[ $dropbear_status == "running" ]]; then 
    status_beruangjatuh=" ${GREEN}Running${NC} ( No Error )${NC}"
@@ -286,7 +286,6 @@ echo -e "❇️ XRAYS Vmess None TLS    :$status_nontls_v2ray"
 echo -e "❇️ XRAYS Vless TLS         :$status_tls_vless"
 echo -e "❇️ XRAYS Vless None TLS    :$status_nontls_vless"
 echo -e "❇️ XRAYS Trojan            :$status_virus_trojan"
-echo -e "❇️ Trojan GO               :$status_trgo"
 echo -e "❇️ Websocket TLS           :$swstls"
 echo -e "❇️ Websocket None TLS      :$swsdrop"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
