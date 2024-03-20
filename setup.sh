@@ -256,8 +256,10 @@ echo "   - Badvpn		: 7100-7900" | tee -a log-install.txt
 echo "   - Nginx		: 81" | tee -a log-install.txt
 echo "   - Vmess TLS		: 443" | tee -a log-install.txt
 echo "   - Vmess None TLS	: 80" | tee -a log-install.txt
+echo "   - Vmess GRPC		: 443" | tee -a log-install.txt
 echo "   - Vless TLS		: 443" | tee -a log-install.txt
 echo "   - Vless None TLS	: 80" | tee -a log-install.txt
+echo "   - Vless GRPC		: 443" | tee -a log-install.txt
 echo "   - Trojan GRPC		: 443" | tee -a log-install.txt
 echo "   - Trojan WS		: 443" | tee -a log-install.txt
 echo "   - Trojan Go		: 443" | tee -a log-install.txt
