@@ -19,7 +19,7 @@ red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/araz1308/list/main/ijin.sh | grep $MYIP )
+IZIN=$(wget -qO- ipinfo.io/ip);
 if [ $MYIP = $IZIN ]; then
 clear
 echo "${NC}${GREEN}Permission Accepted...${NC}"
