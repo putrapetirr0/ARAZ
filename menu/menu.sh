@@ -120,10 +120,10 @@ echo -e ""
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "                 • SCRIPT MENU •                 "
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " [\e[36m•1\e[0m] SSH & OpenVPN Menu     [\e[36m•4\e[0m] Menu Trojan WS"
-echo -e " [\e[36m•2\e[0m] Menu Vmess WS          [\e[36m•5\e[0m] Status Service"
-echo -e " [\e[36m•3\e[0m] Menu Vless WS          [\e[36m•6\e[0m] Clear RAM Cache"
-echo -e " [\e[36m•7\e[0m] Pengaturan"                       
+echo -e " [\e[36m•1\e[0m] SSH & OpenVPN Menu     [\e[36m•5\e[0m] Menu Trojan WS"
+echo -e " [\e[36m•2\e[0m] Menu Vmess WS          [\e[36m•6\e[0m] Menu Grpc"
+echo -e " [\e[36m•3\e[0m] Menu Vless WS          [\e[36m•7\e[0m] Status Service"
+echo -e " [\e[36m•4\e[0m] Pengaturan"            [\e[36m•8\e[0m] Clear RAM Cache"          
 echo -e   ""
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\e[1;32m Client Name        \e[0m: $Name"
@@ -139,9 +139,10 @@ case $opt in
 1) clear ; menu-ssh ;;
 2) clear ; menu-vmess ;;
 3) clear ; menu-vless ;;
-4) clear ; menu-trojan ;;
-5) clear ; running ;;
-6) clear ; clearcache ;;
-7) clear ; menu-set ;;
+4) clear ; menu-set ;;
+5) clear ; menu-trojan ;;
+6) clear ; menu-grpc ;;
+7) clear ; running ;;
+8) clear ; clearcache ;;
 x) exit ;;
 esac
