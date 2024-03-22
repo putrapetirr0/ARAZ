@@ -517,6 +517,20 @@ wget -O mem-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/me
 wget -O addbot "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/addbot.sh" && chmod +x addbot
 wget -O testdns "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/xray/testdns.sh" && chmod +x testdns
 
+# grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/add-tr-grpc.sh" && chmod +x add-tr-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/add-vless-grpc.sh" && chmod +x add-vless-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/add-ws-grpc.sh" && chmod +x add-ws-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/del-tr-grpc.sh" && chmod +x del-tr-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/del-vless-grpc.sh" && chmod +x del-vless-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/del-ws-grpc.sh" && chmod +x del-ws-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/mem-tr-grpc.sh" && chmod +x mem-tr-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/mem-vless-grpc.sh" && chmod +x mem-vless-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/mem-ws-grpc.sh" && chmod +x mem-ws-grpc
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/renew-tr-gr.sh" && chmod +x renew-tr-gr
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/renew-vl-gr.sh" && chmod +x renew-vl-gr
+wget -O add-tr "https://raw.githubusercontent.com/putrapetirr0/ARAZ/main/grpc/renew-ws-gr.sh" && chmod +x renew-ws-gr
+
 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
