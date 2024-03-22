@@ -42,8 +42,6 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 mkdir /etc/xray/vmess
 clear
 cat > /etc/xray/vmess/${user}_tls.json << EOF
@@ -76,27 +74,11 @@ cat > /etc/xray/vmess/${user}_none_tls.json << EOF
       "tls": "none"
 }
 EOF
-cat > /etc/xray/vmess/${user}_grpc.json << EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "443",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "grpc",
-      "path": "vmess-grpc",
-      "type": "none",
-      "host": "${domain}",
-      "tls": "tls"
-}
-EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
 vmesslink1="vmess://$(cat /etc/xray/vmess/${user}_tls.json | base64 -w 0)"
 vmesslink2="vmess://$(cat /etc/xray/vmess/${user}_none_tls.json | base64 -w 0)"
-vmesslink3="vmess://$(cat /etc/xray/vmess/${user}_grpc.json | base64 -w 0)"
   ######################## send det ############################
 BOT_TOKEN="$(sed '/^$/d' /home/botdet)"
 CHAT_ID="$(sed '/^$/d' /home/chatdet)"
@@ -122,8 +104,6 @@ EXPIRED   : $exp
 LINK TLS  : ${vmesslink1}
 
 LINK NTLS : ${vmesslink2}
-
-LINK GRPC : ${vmesslink3}
 "
 echo " "
 echo "_____________________________________"
@@ -145,13 +125,10 @@ echo -e "alterId        : 0" | tee -a /etc/log-create-user.log
 echo -e "Security       : auto" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws" | tee -a /etc/log-create-user.log
 echo -e "Path           : /vmess" | tee -a /etc/log-create-user.log
-echo -e "ServiceName    : vmess-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link TLS       : ${vmesslink1}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link none TLS  : ${vmesslink2}" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link GRPC      : ${vmesslink3}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
