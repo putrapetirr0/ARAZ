@@ -369,7 +369,6 @@ Restart=on-abort
 WantedBy=multi-user.target
 EOF
 
-
 #nginx config
 cat >/etc/nginx/conf.d/vlnone.conf <<EOF
 server {
@@ -377,23 +376,20 @@ server {
   server_name $domain;
   real_ip_header proxy_protocol;
   real_ip_recursive on;
-
-
-location ~ / {
-
-     if ($http_connection = 'Upgrade') {
-    rewrite /(.*) /vlessws break;
-    proxy_pass http://localhost:5211;
-    }
-
-     proxy_http_version 1.1;
-     proxy_set_header Upgrade $http_upgrade;
-     proxy_set_header Connection "Upgrade";
-     proxy_set_header Host $host;
-     proxy_set_header X-Real-IP $remote_addr;
-     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-}
-}
+        }
+EOF
+sed -i '$ location ~ / {' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ if ($http_connection = 'Upgrade') {' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ rewrite /(.*) /vlessws break;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_pass http://127.0.0.1:14016;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_http_version 1.1;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_set_header Connection "upgrade";' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ proxy_set_header Host \$http_host;' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ }' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ }' /etc/nginx/conf.d/vlnone.conf
 
 sed -i '$ ilocation = /vmessws' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
