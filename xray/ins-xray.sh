@@ -385,7 +385,7 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
         }
 EOF
 
-sed -i '$ ilocation = /vmess' /etc/nginx/conf.d/xray.conf
+sed -i '$ ilocation = /vmessws' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_pass http://127.0.0.1:23456;' /etc/nginx/conf.d/xray.conf
@@ -397,7 +397,7 @@ sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
-sed -i '$ ilocation = /trojan-ws' /etc/nginx/conf.d/xray.conf
+sed -i '$ ilocation = /trojanws' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_pass http://127.0.0.1:25432;' /etc/nginx/conf.d/xray.conf
@@ -481,7 +481,7 @@ cat >/etc/nginx/conf.d/vlnone.conf <<EOF
              real_ip_recursive on;
         }
 EOF
-sed -i '$ ilocation = /vless' /etc/nginx/conf.d/vlnone.conf
+sed -i '$ ilocation = /vlessws' /etc/nginx/conf.d/vlnone.conf
 sed -i '$ i{' /etc/nginx/conf.d/vlnone.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vlnone.conf
 sed -i '$ iproxy_pass http://127.0.0.1:14016;' /etc/nginx/conf.d/vlnone.conf
