@@ -98,7 +98,7 @@ cat > /etc/xray/config.json << END
     },
    {
      "listen": "127.0.0.1",
-     "port": "5211",
+     "port": "14016",
      "protocol": "vless",
       "settings": {
           "decryption":"none",
