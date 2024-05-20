@@ -124,7 +124,7 @@ echo -e "id             : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-user.log
 echo -e "Security       : auto" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws" | tee -a /etc/log-create-user.log
-echo -e "Path           : /vmessws" | tee -a /etc/log-create-user.log
+echo -e "Path           : /vmess" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link TLS       : ${vmesslink1}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
