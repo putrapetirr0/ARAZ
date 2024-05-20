@@ -89,7 +89,7 @@ cat > /etc/xray/config.json << END
   "inbounds": [
       {
       "listen": "127.0.0.1",
-      "port": 10085,
+      "port": "10085",
       "protocol": "dokodemo-door",
       "settings": {
         "address": "127.0.0.1"
