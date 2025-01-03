@@ -51,23 +51,26 @@ send_message() {
   local message="$1"
  curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" \
  -d "chat_id=$CHAT_ID" \
- -d "text=$message"
+ -d "text=$message" \
+ -d "parse_mode=Markdown"
 }
 send_message "
-     Detail Account 
+     Detail Account
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 USERNAME  : $user
 
 DOMAIN    : $domain
 
-ID        : $uuid
+ID        : \`$uuid\`
 
 EXPIRED   : $exp
 
-LINK TLS  : ${vlesslink1}
+LINK TLS  : \`${vlesslink1}\`
 
-LINK NTLS : ${vlesslink2}
+LINK NTLS : \`${vlesslink2}\`
+
 "
+
 echo " "
 echo "_____________________________________"
 echo " "
